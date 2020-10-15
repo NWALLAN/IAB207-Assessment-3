@@ -3,7 +3,7 @@ from flask import render_template
 
 bp = Blueprint('main', __name__)
 
-@bp.route('/index') #landing page
+@bp.route('/') #landing page
 def index():    #view function
     return render_template('LandingPage.html')
 #@bp.route('/')

@@ -21,7 +21,7 @@ def login():
         password = login_form.password.data
 
         #check to see if user already exists
-        u1 = user.query.filter_by(username=user_name).first()
+        u1 = User.query.filter_by(username=user_name).first()
 
         #if the user does not exist return an error
         if u1 is None:
@@ -34,7 +34,7 @@ def login():
         #if no errors occur, log user in and redirect to page
         if error is None:
             login_user(u1)
-            return reditect(url_for('index'))
+            return redirect(url_for('main.index'))
         else:
             flash(error)
     return render_template('user.html', form=login_form, heading='Login')
@@ -45,7 +45,7 @@ def register():
     if (register.validate_on_submit()):
         usern = register.user_name.data
         passw = register.password.data
-        email = resgister.email_id.data
+        email = register.email_id.data
 
         u1 = User.query.filter_by(username=usern).first()
         if u1:
