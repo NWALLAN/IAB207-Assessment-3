@@ -46,8 +46,6 @@ def register():
         usern = register.user_name.data
         passw = register.password.data
         email = register.email_id.data
-        #phone = register.phone_number.data
-        #add = register.address.data
 
         u1 = User.query.filter_by(username=usern).first()
         if u1:
@@ -58,7 +56,7 @@ def register():
         passw_hash = generate_password_hash(passw)
 
         #creating new user
-        new_user = User(username=usern, password_hash=passw_hash, email=email) #phone=phone, address=add)
+        new_user = User(username=usern, password_hash=passw_hash, email=email)
 
         #add new user to database
         db.session.add(new_user)
