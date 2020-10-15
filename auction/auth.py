@@ -46,8 +46,8 @@ def register():
         usern = register.user_name.data
         passw = register.password.data
         email = register.email_id.data
-        phone = register.phone.data
-        add = register.add.data
+        phone = register.phone_number.data
+        add = register.address.data
 
         u1 = User.query.filter_by(username=usern).first()
         if u1:
