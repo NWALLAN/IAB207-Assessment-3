@@ -25,7 +25,7 @@ def login():
 
         #if the user does not exist return an error
         if u1 is None:
-            error='Incorrect user name'
+            error='User Name does not exist. Check your spelling or click the register link below if you do not have an account.'
 
         #if the password does not match return an error
         elif not check_password_hash(u1.password_hash, password):
@@ -49,15 +49,26 @@ def register():
 
         u1 = User.query.filter_by(username=usern).first()
         if u1:
-            flash('User name already in use. Please try another or log in')
+            flash('User name already in use. Please try another.')
             return redirect(url_for('auth.register'))
 
         #hashing the users password
         passw_hash = generate_password_hash(passw)
 
         #creating new user
-        newu = User(username=newu, password_hash=passw_hash, email=email)
+        new_user = User(username=usern, password_hash=passw_hash, email=email)
 
         #add new user to database
-        db.session.add(newu)
+        db.session.add(new_user)
         db.session.commit()
+
+        return redirect(url_for("main.index"))
+    
+    else:
+        return render_template('user.html', form=register, heading='Register')
+
+@bp.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for('main.index'))

@@ -34,7 +34,9 @@
 								Account Settings
 							</a>
 							<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-								<a class="dropdown-item" href="#"> Sign Out </a>
+                                <a class="dropdown-item" href="{{ url_for('auth.login') }}"> Log In </a>
+                                <a class="dropdown-item" href="{{ url_for('auth.register') }}"> Register </a>
+                                <a class="dropdown-item" href="{{ url_for('auth.login') }}"> Sign Out </a>
 								</div>
 						</li>
 					</ul>
