@@ -13,7 +13,9 @@ class LoginForm(FlaskForm):
  # this is the registration form
 class RegisterForm(FlaskForm):
     user_name=StringField("User Name", validators=[InputRequired()])
-    email_id = StringField("Email Address", validators=[Email("Please enter a valid email")])
+    email_id=StringField("Email Address", validators=[Email("Please enter a valid email")])
+    #phone_number=StringField("Phone Number", validators=[InputRequired("Please enter a valid phone number")])
+    #address=StringField("Address", validators=[InputRequired("Please enter your shipping address")])
     
     #add buyer/seller - check if it is a buyer or seller hint : Use RequiredIf field
 
