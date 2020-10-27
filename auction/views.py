@@ -23,6 +23,11 @@ def user():    #view function
 def userwishlist():    #view function
     return render_template('UserWishlist.html')
 
+@bp.app_errorhandler(404)#handles 404 errors
+def not_found(e): #error view function
+    return render_template('404_Error.html'),404
+        
+
 #@bp.route('/')
 #def index():
 #    return '<h1>Starter code for the assessment<h1>'
