@@ -12,6 +12,8 @@
 						<img class="d-block w-100" src="img/image1.jpg" alt="First Item">
 						<h3>Product Description</h3>
 						<p> xxxxxxxxxxxxxxxxxxxxxxx</p>
+						<a href="{{ url_for('product.create') }}" class="btn btn-secondary btn-lg active" role="button">Create New Listing</a>
+
 						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createBid" data-whatever="createBid">Create Bid on Item</button>
 							<div class="modal fade" id="createBid" tabindex="-1" role="dialog" aria-labelledby="createBidLabel" aria-hidden="true">
 							<div class="modal-dialog" role="document">

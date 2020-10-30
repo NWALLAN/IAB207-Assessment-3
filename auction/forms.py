@@ -1,6 +1,5 @@
-
 from flask_wtf import FlaskForm
-from wtforms.fields import TextAreaField,SubmitField, StringField, PasswordField, SelectField, FileField
+from wtforms.fields import TextAreaField,SubmitField, StringField, PasswordField, SelectField, FileField, IntegerField
 from wtforms.validators import InputRequired, Length, Email, EqualTo
 from flask_wtf.file import FileField, FileRequired, FileAllowed
 
@@ -9,14 +8,16 @@ from flask_wtf.file import FileField, FileRequired, FileAllowed
 class LoginForm(FlaskForm):
     user_name=StringField("User Name", validators=[InputRequired('Enter user name')])
     password=PasswordField("Password", validators=[InputRequired('Enter user password')])
+    phone=IntegerField("Contact Number", validators=[InputRequired()])
+    address=StringField("Shipping Address", validators=[InputRequired()])
     submit = SubmitField("Login")
 
  # this is the registration form
 class RegisterForm(FlaskForm):
     user_name=StringField("User Name", validators=[InputRequired()])
     email_id=StringField("Email Address", validators=[Email("Please enter a valid email")])
-    #phone_number=StringField("Phone Number", validators=[InputRequired("Please enter a valid phone number")])
-    #address=StringField("Address", validators=[InputRequired("Please enter your shipping address")])
+    phone=IntegerField("Phone Number", validators=[InputRequired("Please enter a valid phone number")])
+    address=StringField("Sipping Address", validators=[InputRequired("Please enter your shipping address")])
     
     #add buyer/seller - check if it is a buyer or seller hint : Use RequiredIf field
 

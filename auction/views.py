@@ -39,6 +39,9 @@ def userwishlist():    #view function
 ##        return redirect(url_for('main.index'))
 ##        
 ##    return render_template('ItemDetailsPage.html', form=bids, heading='New Bid')
+#@bp.route('/itemdetails')#item details page
+#def itemdetails():    #view function
+#    return render_template('ItemDetailsPage.html')
 
 @bp.app_errorhandler(404)#handles 404 errors
 def not_found(e): #error view function
