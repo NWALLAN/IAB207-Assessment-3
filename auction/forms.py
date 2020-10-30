@@ -1,7 +1,8 @@
 
 from flask_wtf import FlaskForm
-from wtforms.fields import TextAreaField,SubmitField, StringField, PasswordField
+from wtforms.fields import TextAreaField,SubmitField, StringField, PasswordField, SelectField, FileField
 from wtforms.validators import InputRequired, Length, Email, EqualTo
+from flask_wtf.file import FileField, FileRequired, FileAllowed
 
 
 #creates the login information
@@ -27,3 +28,12 @@ class RegisterForm(FlaskForm):
 
     #submit button
     submit = SubmitField("Register")
+
+ALLOWED_FILES={'jpg', 'png', 'JPG', 'PNG'}
+class CreateItem(FlaskForm):
+    product_name=StringField('Product Name', validators=[InputRequired()])
+    product_description=StringField('Product Description', validators=[InputRequired()])
+    product_category=SelectField('Categories', choices= [('Paintings', 'Paintings'), ('Photography', 'Photography'), ('Sculptign', 'Sculpting'), ('Calligraphy', 'Calligraphy'), ('Illustrations', 'Illustrations'), ('Printmaking', 'Printmaking'), ('Graphic Design', 'Graphic Design')])
+    product_bidstart=StringField('Starting Bid Price', validators=[InputRequired()])
+    product_image=FileField(validators=[FileRequired(), FileAllowed(ALLOWED_FILES)])
+    submit=SubmitField("Create Listing")

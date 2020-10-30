@@ -11,3 +11,16 @@ class User(db.Model, UserMixin):
 
     def __repr__(self):
         return '<user: {}>'.format(self.username)
+
+class Products(db.Model):
+    __tablename__='products'
+    id = db.Column(db.Integer, primary_key=True)
+    product_name = db.Column(db.String(100), nullable=False)
+    product_description = db.Column(db.String(500))
+    product_bidstart = db.Column(db.Numeric, nullable=False)
+    product_category = db.Column(db.String(50), nullable=False)
+    product_image = db.Column(db.String(400))
+    seller_user = db.Column(db.Integer, db.ForeignKey('users.id'))
+
+    def __repr__(self):
+        return "<product: {}>".format(self.product_name)
