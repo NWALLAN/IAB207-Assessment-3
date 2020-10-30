@@ -24,3 +24,12 @@ class Products(db.Model):
 
     def __repr__(self):
         return "<product: {}>".format(self.product_name)
+
+class Bids(db.Model):
+    __tablename__='Bids'
+    id = db.Column(db.Integer, primary_key=True)
+    bid_amount = db.Column(db.String(100), nullable=False)
+    bidder = db.Column(db.Integer, db.ForeignKey('users.id'))
+
+    def __repr__(self):
+        return "<bid: {}>".format(self.bid_amount)

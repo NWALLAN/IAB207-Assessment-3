@@ -37,3 +37,18 @@ def create():
         return redirect(url_for('main.index'))
 
     return render_template("ItemCreation.html", form=listing, heading='Create new listing')
+
+@bp.route('/itemdetails', methods = ['GET', 'POST'])#item details page
+def itemdetails():    #view function
+    bids = BidItem()
+    print('Method Type:', request.method)
+    if BidItem.validate_on_submit():
+        print('New Bid added')
+        newBid = bids(
+            bid_amount=bids.bid_amount.data
+        )
+        db.session.add(BidItem)
+        db.session.commit()
+        return redirect(url_for('main.index'))
+        
+    return render_template('ItemDetailsPage.html', form=bids, heading='New Bid')

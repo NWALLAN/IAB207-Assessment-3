@@ -25,9 +25,20 @@ def user():    #view function
 def userwishlist():    #view function
     return render_template('UserWishlist.html')
 
-@bp.route('/itemdetails')#item details page
-def itemdetails():    #view function
-    return render_template('ItemDetailsPage.html')
+##@bp.route('/itemdetails')#item details page
+##def itemdetails():    #view function
+##    bids = BidItem()
+##    print('Method Type:', request.method)
+##    if BidItem.validate_on_submit():
+##        print('New Bid added')
+##        newBid = bids(
+##            bid_amount=bids.bid_amount.data
+##        )
+##        db.session.add(BidItem)
+##        db.session.commit()
+##        return redirect(url_for('main.index'))
+##        
+##    return render_template('ItemDetailsPage.html', form=bids, heading='New Bid')
 
 @bp.app_errorhandler(404)#handles 404 errors
 def not_found(e): #error view function

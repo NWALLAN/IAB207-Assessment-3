@@ -37,3 +37,7 @@ class CreateItem(FlaskForm):
     product_bidstart=StringField('Starting Bid Price', validators=[InputRequired()])
     product_image=FileField(validators=[FileRequired(), FileAllowed(ALLOWED_FILES)])
     submit=SubmitField("Create Listing")
+
+class BidItem(FlaskForm):
+    bid_amount=StringField('Bid Amount', validators=[InputRequired()])
+    submit=SubmitField("Place Bid")
