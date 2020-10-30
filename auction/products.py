@@ -9,20 +9,30 @@ from flask_login import login_required, current_user
 
 bp = Blueprint('product', __name__)
 
-@bp.route('/<id>')
+@bp.route('/showid/<id>')
 def showid(id):
+    form = CreateItem()
+    products = Products.query.all()
+    print('Method type: ', request.method)
     products = Products.query.filter_by(id=id).first()
-    if (not products):
-        return render_template('404_Error.html')
+    if request.method == "POST":
 
-    #seller information
-    seller = User.query.filter_by(id=products.seller_user).first()
+        products.product_name = form.product_name.data
+        products.product_description = form.product_description.data
+        products.product_category = form.product_category.data
+        products.product_bidstart = form.product_bidstart.data
+        products.product_image = form.product_image.data
+
+        db.session.commit()
+    return render_template('ItemDetailsPage.html', form=form, products=products)
+
+    
 
 @bp.route('/create', methods = ['GET', 'POST'])
+@login_required
 def create():
     listing = CreateItem()
-    print('Method Type:', request.method)
-    if listing.validate_on_submit():
+    if (listing.validate_on_submit()):
         print('New listing created')
         newListing = Products(
             seller_user=current_user.username,
@@ -37,3 +47,5 @@ def create():
         return redirect(url_for('main.index'))
 
     return render_template("ItemCreation.html", form=listing, heading='Create new listing')
+
+

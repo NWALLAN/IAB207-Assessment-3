@@ -25,9 +25,9 @@ def user():    #view function
 def userwishlist():    #view function
     return render_template('UserWishlist.html')
 
-@bp.route('/itemdetails')#item details page
-def itemdetails():    #view function
-    return render_template('ItemDetailsPage.html')
+#@bp.route('/itemdetails')#item details page
+#def itemdetails():    #view function
+#    return render_template('ItemDetailsPage.html')
 
 @bp.app_errorhandler(404)#handles 404 errors
 def not_found(e): #error view function
