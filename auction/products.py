@@ -52,7 +52,7 @@ def create():
 def itemdetails():    #view function
     bids = BidItem()
     print('Method Type:', request.method)
-    if (BidItem.validate_on_submit()):
+    if (bids.validate_on_submit()):
         print('New Bid added')
         newBid = bids(
             bid_amount=bids.bid_amount.data
