@@ -7,7 +7,8 @@ bp = Blueprint('main', __name__)
 
 @bp.route('/') #landing page
 def index():    #view function
-    return render_template('LandingPage.html')
+    products = Products.query.all()
+    return render_template('LandingPage.html', products=products)
 
 #@bp.route('/createitem')#item creation page
 #def createitem():    #view function
