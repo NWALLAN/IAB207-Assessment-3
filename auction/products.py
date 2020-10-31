@@ -11,22 +11,10 @@ import os
 
 bp = Blueprint('product', __name__)
 
-@bp.route('/showid/<id>')
-def showid(id):
-    form = CreateItem()
-    products = Products.query.all()
-    print('Method type: ', request.method)
-    products = Products.query.filter_by(id=id).first()
-    if request.method == "POST":
-
-        products.product_name = form.product_name.data
-        products.product_description = form.product_description.data
-        products.product_category = form.product_category.data
-        products.product_bidstart = form.product_bidstart.data
-        products.product_image = form.product_image.data
-
-        db.session.commit()
-    return render_template('ItemDetailsPage.html', form=form, products=products)
+@bp.route('/<id>')
+def show(id):
+    
+    return render_template('ItemDetailsPage.html', id=id)
 
 def check_upload(fp, filename):
     BASE_PATH = os.path.dirname(__file__)
