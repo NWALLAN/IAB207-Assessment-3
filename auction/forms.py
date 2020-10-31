@@ -30,7 +30,7 @@ class RegisterForm(FlaskForm):
     #submit button
     submit = SubmitField("Register")
 
-ALLOWED_FILES={'jpg', 'png', 'JPG', 'PNG'}
+ALLOWED_FILES={'jpg', 'png', 'JPG', 'PNG', 'jpeg', 'JPEG'}
 class CreateItem(FlaskForm):
     product_name=StringField('Product Name', validators=[InputRequired()])
     product_description=StringField('Product Description', validators=[InputRequired()])
