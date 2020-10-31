@@ -1,5 +1,5 @@
 from flask import Blueprint
-from flask import render_template, url_for
+from flask import render_template, url_for, request
 from .models import Products
 
 
@@ -14,9 +14,11 @@ def index():    #view function
 #def createitem():    #view function
 #    return render_template('ItemCreation.html')
 
-@bp.route('/view_items')#item details page
+@bp.route('/view_items', methods=['GET', 'POST'])#item details page
 def view_items():    #view function
-    return render_template('ItemDetailsPage.html')
+    products = Products.query.all()
+    products
+    return render_template('ItemDetailsPage.html', products = products)
 
 @bp.route('/user')#user page
 def user():    #view function
@@ -47,8 +49,3 @@ def userwishlist():    #view function
 @bp.app_errorhandler(404)#handles 404 errors
 def not_found(e): #error view function
     return render_template('404_Error.html'),404
-        
-
-#@bp.route('/')
-#def index():
-#    return '<h1>Starter code for the assessment<h1>'
