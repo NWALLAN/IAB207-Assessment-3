@@ -1,4 +1,4 @@
-rom . import db
+from . import db
 from datetime import datetime
 from flask_login import UserMixin
 
@@ -8,6 +8,9 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(20), index=True, unique=True, nullable=False)
     email = db.Column(db.String(100), index=True, unique=True, nullable=False)
     password_hash = db.Column(db.String(255), nullable=False)
+    phone = db.Column(db.Integer, nullable=False, unique=True)
+    address = db.Column(db.String(100), index=True, unique=True, nullable=False)
+
 
     def __repr__(self):
         return '<user: {}>'.format(self.username)
