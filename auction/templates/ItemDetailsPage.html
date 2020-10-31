@@ -5,6 +5,7 @@
 			<div class="container-fluid">
 				<div class="row item-detail text-dark container-fluid">
 					<div class="col-md-3">
+					{% if product is not none %}
 						<h3>Product Name</h3>
 						<h4> {{products.product_name}}</h4>
 						<h3>Product Image</h3>
@@ -15,6 +16,7 @@
 						<p>{{ products.product_category }}</p>
 						<h3>Product Price</h3>
 						<p>{{ products.product_image }}</p>
+					{% endif %}
 						<a href="{{ url_for('product.create') }}" class="btn btn-secondary btn-lg active" role="button">Create New Listing</a>
 
 						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createBid" data-whatever="createBid">Create Bid on Item</button>

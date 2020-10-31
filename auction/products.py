@@ -9,8 +9,8 @@ from flask_login import login_required, current_user
 
 bp = Blueprint('product', __name__)
 
-@bp.route('/showid/<id>', methods=["GET", "POST"])
-def showid(id):
+@bp.route('/<id>', methods=["GET", "POST"])
+def view(id):
     form = CreateItem()
     products = Products.query.all()
     print('Method type: ', request.method)
@@ -24,7 +24,7 @@ def showid(id):
         products.product_image = form.product_image.data
 
         db.session.commit()
-    return render_template('ItemDetailsPage.html', form=form, products=products)
+    return render_template('ItemDetailsPage.html', form=form, products=products, id=id)
 
     
 

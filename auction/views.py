@@ -1,6 +1,7 @@
 from flask import Blueprint
 from flask import render_template, url_for, request
-from .models import Products
+from .models import Products, User
+from . import db
 
 
 bp = Blueprint('main', __name__)
@@ -17,8 +18,9 @@ def index():    #view function
 @bp.route('/view_items', methods=['GET', 'POST'])#item details page
 def view_items():    #view function
     products = Products.query.all()
-    products
-    return render_template('ItemDetailsPage.html', products = products)
+    
+    
+    return render_template('ItemDetailsPage.html', products = products, id=id)
 
 @bp.route('/user')#user page
 def user():    #view function

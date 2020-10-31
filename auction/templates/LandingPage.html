@@ -80,7 +80,7 @@
 						<h1> Click to View Item</h1>
 						<!--listed items for featured items-->
 							<ul class="list-group">
-								<a href="{{ url_for('product.showid', id=products.id) }}" class="list-group-item list-group-item-action"> Featured Item 1</a>
+								<a href="{{ url_for('product.view', id=products.id) }}" class="list-group-item list-group-item-action"> Featured Item 1</a>
 								<a href="{{ url_for('main.view_items', id=products.id) }}" class="list-group-item list-group-item-action"> Featured Item 2</a>
 								<a href="{{ url_for('main.view_items', id=products.id) }}" class="list-group-item list-group-item-action"> Featured Item 3</a>
 								<a href="{{ url_for('main.view_items', id=products.id) }}" class="list-group-item list-group-item-action"> Featured Item 4</a>
