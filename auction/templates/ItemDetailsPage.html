@@ -5,12 +5,16 @@
 			<div class="container-fluid">
 				<div class="row item-detail text-dark container-fluid">
 					<div class="col-md-3">
-						<h3>Product Name:</h3>
-						<h4> {{products}}</h4>
-						<h3>Product Image:</h3>
-						<img class="d-block w-100" src="{{ product_image}}" alt="First Item">
+						<h3>Product Name</h3>
+						<h4> {{products.product_name}}</h4>
+						<h3>Product Image</h3>
+						<img class="d-block w-100" src="{{ products.product_image }}" alt="Item Picture">
 						<h3>Product Description</h3>
-						<p> {{ products }}</p>
+						<p> {{ products.product_description }}</p>
+						<h3>Product Category</h3>
+						<p>{{ products.product_category }}</p>
+						<h3>Product Price</h3>
+						<p>{{ products.product_image }}</p>
 						<a href="{{ url_for('product.create') }}" class="btn btn-secondary btn-lg active" role="button">Create New Listing</a>
 
 						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createBid" data-whatever="createBid">Create Bid on Item</button>
@@ -70,7 +74,7 @@
 							</ul>
 						<h3>Bidding Information</h3>
 							<ul class="list-group text-dark">
-								<li class="list-group-item"> Starting Bid: $50.00</li>
+								<li class="list-group-item"> {{ products_bidstart }}</li>
 								<li class="list-group-item"> Latest Bid: $150.55</li>
 							</ul>
 					<div class="card text-dark" style="margin-top:15px">
