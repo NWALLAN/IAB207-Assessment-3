@@ -1,1 +1,1 @@
-web: gunicorn 'auction:create_app()'
+web: gunicorn -w 2 'auction:create_app()'
