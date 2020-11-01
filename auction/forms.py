@@ -42,3 +42,7 @@ class CreateItem(FlaskForm):
 class BidItem(FlaskForm):
     bid_amount=StringField('Bid Amount', validators=[InputRequired()])
     submit=SubmitField("Place Bid")
+
+class Additem(FlaskForm):
+    product_URL=StringField('Product URL', validators=[InputRequired()])
+    submit=SubmitField("Add to wishlist")
