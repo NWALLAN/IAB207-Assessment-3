@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 
+{% import "bootstrap/wtf.html" as wtf %}
 {% block content %}
 		<main>
 			<div class="container-fluid">
@@ -40,7 +41,8 @@
 							<div class="form-group">
 								<label for="bidAmmount-text" class="col-form-label">Bid Ammount</label>
 								{% if current_user.is_authenticated %} 
-								<textarea class="form-control" id="message-text">$</textarea>
+								<textarea class="form-control" id="message-text" placeholder="$"></textarea>
+								{{wtf.quick_form(form)}}
 								{% else %} 
 								<textarea disabled class="form-control" id="message-text">You need to be signed in to place a bid</textarea>
 								{% endif %} 

@@ -51,3 +51,7 @@ def userwishlist():    #view function
 @bp.app_errorhandler(404)#handles 404 errors
 def not_found(e): #error view function
     return render_template('404_Error.html'),404
+
+@bp.app_errorhandler(500)#handles 404 errors
+def not_found(e): #error view function
+    return render_template('500_Error.html'),500
