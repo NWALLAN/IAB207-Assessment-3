@@ -10,7 +10,8 @@
 
         <h1>Bid on Item</h1>
 
-		{{wtf.quick_form(form)}}
+        {{ wtf.quick_form(form)}}
+               
         
       </div>
     </div>
@@ -24,6 +25,7 @@
       <div class="col-md-12">
 
         <h1>You must be logged in to access this function.</h1>
+        <p>Not signed in? <a href="{{ url_for('auth.login') }}">Click here to login.</a>.</p>
         
       </div>
     </div>
