@@ -6,56 +6,20 @@
 			<div class="container-fluid">
 				<div class="row item-detail text-dark container-fluid">
 					<div class="col-md-3">
-					{% if product is not none %}
 						<h3>Product Name</h3>
 						<h4> {{products.product_name}}</h4>
 						<h3>Product Image</h3>
-						<img class="d-block w-100" src="{{ products.product_image }}" alt="Item Picture">
+						<img class="d-block w-100" src="{{ products.product_image_ }}" alt="Item Picture">
 						<h3>Product Description</h3>
 						<p> {{ products.product_description }}</p>
 						<h3>Product Category</h3>
 						<p>{{ products.product_category }}</p>
 						<h3>Product Price</h3>
-						<p>{{ products.product_image }}</p>
-					{% endif %}
+						<p>${{ products.product_bidstart }}</p>
 						<a href="{{ url_for('product.create') }}" class="btn btn-secondary btn-lg active" role="button">Create New Listing</a>
+						<a href="{{ url_for('product.bid') }}" class="btn btn-secondary btn-lg active" role="button">Bid on Item</a>
 
-						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createBid" data-whatever="createBid">Create Bid on Item</button>
-							<div class="modal fade" id="createBid" tabindex="-1" role="dialog" aria-labelledby="createBidLabel" aria-hidden="true">
-							<div class="modal-dialog" role="document">
-							<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title" id="createBid">Create Bid</h5>
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-									<span aria-hidden="true">&times;</span>
-								</button>
-							</div>
-							<div class="modal-body">
-							<form>
-								<div class="form-group">
-									<label for="product-name" class="col-form-label">Product Name</label>
-									<p>
-									<text style="text-decoration: underline"> Feature Item 1 </text>
-									</p>
-							</div>
-							<div class="form-group">
-								<label for="bidAmmount-text" class="col-form-label">Bid Ammount</label>
-								{% if current_user.is_authenticated %} 
-								<textarea class="form-control" id="message-text" placeholder="$"></textarea>
-								{{wtf.quick_form(form)}}
-								{% else %} 
-								<textarea disabled class="form-control" id="message-text">You need to be signed in to place a bid</textarea>
-								{% endif %} 
-							</div>
-							</form>
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-								{% if current_user.is_authenticated %} 
-								<button type="button" class="btn btn-primary" data-dismiss="modal">Place Bid</button>
-								{% else %} 
-								{% endif %} 
-							</div>
+					
 							</div>
 							</div>
 							</div>
