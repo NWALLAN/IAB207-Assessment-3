@@ -24,12 +24,8 @@ def view_items():    #view function
     products = Products.query.all()
     wishlist = Additem()
     if (wishlist.validate_on_submit()):
-        print('New listing created')
-        add_wishlist = Products(
-            user_name=current_user.username,
-            product_URL=wishlist.product_URL.data,
-            )
-        db.session.add(add_wishlist)
+        print('New wishlist item added')
+        
         db.session.commit()
         return redirect(url_for('main.index'))
     
